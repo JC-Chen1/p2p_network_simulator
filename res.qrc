@@ -15,5 +15,6 @@
         <file>client_1.png</file>
         <file>more.png</file>
         <file>more1.png</file>
+        <file>generate.png</file>
     </qresource>
 </RCC>

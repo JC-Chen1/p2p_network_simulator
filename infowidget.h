@@ -18,10 +18,10 @@ public:
     explicit InfoWidget(QWidget *parent = nullptr);
     ~InfoWidget();
     void setInfo(int choose,vector<DataBlock> cur_block,vector<pair<int, double>> cur_memory);
-    Ui::InfoWidget *ui;
+
 
 private:
-
+    Ui::InfoWidget *ui;
 };
 
 #endif // INFOWIDGET_H

@@ -70,6 +70,7 @@ public slots:
     void set_delay_text(QString str);
     void set_fluency_text(QString str);
     void send_information(int choose,vector<DataBlock> block,vector<pair<int, double>> memory);
+    void generate(int n);
 
 private slots:
 

@@ -20,7 +20,6 @@ public:
     presentationWidget* prew;
     vector<DataBlock> cur_block;
     vector<pair<int, double>> cur_memory;
-    int choose;
     int stepTimes;
     bool started;
     ~Total();
@@ -37,8 +36,8 @@ private slots:
     void on_pushButton_shrink_clicked();
     void on_pushButton_more_clicked();
     void on_pushButton_start_clicked();
-
     void on_pushButton_step_clicked();
+    void on_pushButton_generate_clicked();
 
 private:
     Ui::Total *ui;

@@ -9,12 +9,11 @@ Total::Total(QWidget *parent) :
     ui(new Ui::Total)
 {
     ui->setupUi(this);
-    choose = -1;
     started = false;
     stepTimes = 0;
     presentationWidget* p = new presentationWidget(this);
     prew = p;
-    prew->setGeometry(320,50,980,780);
+    prew->setGeometry(320,60,980,780);
     this->setWindowFlags(Qt::FramelessWindowHint);
     this->setAttribute(Qt::WA_TranslucentBackground);//设置窗口背景透明
     ui->pushButton_start->setIcon(QIcon(":/start.png"));
@@ -54,6 +53,7 @@ void Total::on_pushButton_delete_clicked()
     started = false;
     stepTimes = 0;
     ui->pushButton_start->setEnabled(true);
+    ui->pushButton_step->setEnabled(true);
 }
 void Total::setidLabelText(const QString &text)
 {
@@ -83,11 +83,10 @@ void Total::setdelayLabelText(const QString &text){
 
 void Total::on_pushButton_more_clicked()
 {
-    if(choose != -1){
+    if(prew->lastChoose != -1){
         InfoWidget* w = new InfoWidget();
         //iw = w;
-        w->setInfo(choose,cur_block,cur_memory);
-        choose = -1;
+        w->setInfo(prew->lastChoose,cur_block,cur_memory);
         w->show();
     }
 }
@@ -100,6 +99,7 @@ void Total::on_pushButton_start_clicked()
         started = true;
     }
     ui->pushButton_start->setEnabled(false);
+    ui->pushButton_step->setEnabled(false);
 }
 
 
@@ -114,5 +114,14 @@ void Total::on_pushButton_step_clicked()
         stepTimes++;
     }
     ui->pushButton_start->setEnabled(false);
+}
+
+//开始生成
+void Total::on_pushButton_generate_clicked()
+{
+    int k = (ui->lineEdit->text()).toInt();
+    qDebug()<<k;
+    prew->generate(k);
+    ui->pushButton_generate->setEnabled(false);
 }
 

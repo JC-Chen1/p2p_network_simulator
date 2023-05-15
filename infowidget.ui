@@ -6,65 +6,63 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>923</width>
+    <width>928</width>
     <height>793</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QScrollArea" name="scrollArea">
+  <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>-1</x>
-     <y>-1</y>
-     <width>931</width>
-     <height>801</height>
+     <x>0</x>
+     <y>0</y>
+     <width>928</width>
+     <height>793</height>
     </rect>
    </property>
-   <property name="widgetResizable">
-    <bool>false</bool>
+   <property name="styleSheet">
+    <string notr="true">QFrame{
+border-radius:30px;
+background-color: rgb(255, 255, 255);
+}</string>
    </property>
-   <widget class="QWidget" name="scrollAreaWidgetContents">
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QScrollArea" name="scrollArea">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>929</width>
-      <height>3000</height>
+      <x>10</x>
+      <y>80</y>
+      <width>910</width>
+      <height>691</height>
      </rect>
     </property>
-    <widget class="QWidget" name="widget" native="true">
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
+    <property name="widgetResizable">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents">
      <property name="geometry">
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>921</width>
-       <height>3500</height>
+       <width>929</width>
+       <height>3000</height>
       </rect>
      </property>
-     <widget class="QLabel" name="label_delay_t">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>70</y>
-        <width>181</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
-background:transparent;</string>
-      </property>
-      <property name="text">
-       <string>Block ID&amp;Delay:</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_delay">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>120</y>
+        <x>480</x>
+        <y>90</y>
         <width>251</width>
         <height>3000</height>
        </rect>
@@ -80,31 +78,47 @@ background:transparent;</string>
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
       </property>
      </widget>
-     <widget class="QLabel" name="label_cid_t">
+     <widget class="QLabel" name="label_bn_t">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>30</x>
         <y>30</y>
         <width>151</width>
         <height>31</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 700 20pt &quot;Adobe Caslon Pro Bold&quot;;
-background:transparent;
-color: rgb(0, 85, 0);</string>
+       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;</string>
       </property>
       <property name="text">
-       <string>Client ID:</string>
+       <string>Block Number:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_delay_t">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>30</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;</string>
+      </property>
+      <property name="text">
+       <string>Block ID&amp;Delay:</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_bn">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>130</y>
-        <width>171</width>
-        <height>3000</height>
+        <x>50</x>
+        <y>99</y>
+        <width>151</width>
+        <height>3001</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -118,42 +132,60 @@ background:transparent;</string>
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
       </property>
      </widget>
-     <widget class="QLabel" name="label_cid">
-      <property name="geometry">
-       <rect>
-        <x>210</x>
-        <y>30</y>
-        <width>151</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 700 20pt &quot;Adobe Caslon Pro Bold&quot;;
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>20</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;
+border-image: url(:/close.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_cid_t">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 20pt &quot;Adobe Caslon Pro Bold&quot;;
 background:transparent;
 color: rgb(0, 85, 0);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_bn_t">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>80</y>
-        <width>151</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
-background:transparent;</string>
-      </property>
-      <property name="text">
-       <string>Block Number:</string>
-      </property>
-     </widget>
-    </widget>
+    </property>
+    <property name="text">
+     <string>Client ID:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_cid">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>40</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 20pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;
+color: rgb(0, 85, 0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
  </widget>

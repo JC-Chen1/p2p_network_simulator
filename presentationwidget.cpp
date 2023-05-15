@@ -13,25 +13,10 @@ presentationWidget::presentationWidget(QWidget *parent) :
     ui->setupUi(this);
     Pressed = false;
     lastChoose = -1;
-    //节点个数
-    listSize = 10;
     //客户端节点buffer的大小
     bufferSize = 30;
     //服务器节点buffer的大小
     server_size = 30;
-
-    //初始化服务器节点
-    server = ServerNode(server_size);
-    for(int i = 0; i < listSize; i++){
-        Node n(i);
-        n.button->setParent(this);
-        //按编号来初始化客户端节点容器
-        if (i != 0) {
-            clientSet.push_back(ClientNode(bufferSize, i,n.x,n.y));
-        }
-        n.button->setGeometry(n.x,n.y,80,80);
-        p2p.push_back(n);
-    }
 
     //this->setWindowFlags(Qt::FramelessWindowHint);
 }
@@ -397,7 +382,6 @@ void presentationWidget::send_information(int lc,vector<DataBlock> block,vector<
     Total *w = qobject_cast<Total *>(parent());
     w->cur_block = block;
     w->cur_memory = memory;
-    w->choose = lc;
 }
 //开始事件
 void presentationWidget::startEvent(){
@@ -536,7 +520,14 @@ void presentationWidget::stepEvent_first(){
     connectionG.VNconnect();
     //更新邻接矩阵
     connectionG.setAdjMatrix();
-
+    //清空事件队列
+    eventList = priority_queue<Event*, vector< Event*>, cmp>();
+    server.globalDataNum = 0;
+    for (auto it = clientSet.begin(); it != clientSet.end();) {
+        // 重置clientnode
+        it->reset();
+        it++;
+    }
     //获取连接关系，画线
     int k = 1;
     for(int i = 0; i < listSize; i++){
@@ -640,6 +631,28 @@ void presentationWidget::stepEvent(){
             set_delay_text(str2);
             set_fluency_text(QString::number(clientSet[lastChoose-1].contiousPlayTime / clientSet[lastChoose-1].endPlayTime));
             send_information(lastChoose,clientSet[lastChoose-1].dataBuffer,memory);
+        }
+    }
+}
+
+void presentationWidget::generate(int m){
+    if(m > 1){
+        listSize = m;
+        //初始化服务器节点
+        server = ServerNode(server_size);
+        for(int i = 0; i < listSize; i++){
+            Node n(i);
+            n.button->setParent(this);
+            //按编号来初始化客户端节点容器
+            if (i != 0) {
+                clientSet.push_back(ClientNode(bufferSize, i,n.x,n.y));
+            }
+            n.button->setGeometry(n.x,n.y,80,80);
+            p2p.push_back(n);
+        }
+        // 将按钮添加到窗口中
+        for (const auto& node : p2p) {
+            node.button->show();
         }
     }
 }
