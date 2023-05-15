@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>customer.png</file>
+        <file>customer_red.png</file>
+        <file>close.png</file>
+        <file>delete.png</file>
+        <file>step.png</file>
+        <file>start.png</file>
+        <file>about.png</file>
+        <file>shrink.png</file>
+        <file>red.png</file>
+        <file>server.png</file>
+        <file>client.png</file>
+        <file>server_1.png</file>
+        <file>client_1.png</file>
+        <file>more.png</file>
+        <file>more1.png</file>
+    </qresource>
+</RCC>

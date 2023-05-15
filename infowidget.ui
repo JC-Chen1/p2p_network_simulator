@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InfoWidget</class>
+ <widget class="QWidget" name="InfoWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>923</width>
+    <height>793</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>-1</x>
+     <y>-1</y>
+     <width>931</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>false</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>929</width>
+      <height>3000</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>921</width>
+       <height>3500</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="label_delay_t">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>70</y>
+        <width>181</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;</string>
+      </property>
+      <property name="text">
+       <string>Block ID&amp;Delay:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_delay">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>120</y>
+        <width>251</width>
+        <height>3000</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_cid_t">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>30</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 20pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;
+color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string>Client ID:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_bn">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>130</y>
+        <width>171</width>
+        <height>3000</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_cid">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>30</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 20pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;
+color: rgb(0, 85, 0);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_bn_t">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>80</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 16pt &quot;Adobe Caslon Pro Bold&quot;;
+background:transparent;</string>
+      </property>
+      <property name="text">
+       <string>Block Number:</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
