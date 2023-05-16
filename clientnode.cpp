@@ -132,11 +132,11 @@ void ClientNode::updateBuffer(double preTime, vector<ClientNode>& all_client_nod
             return a.dataNum < b.dataNum;
         });
     }
-    cout << dataBuffer.size() << endl;
+//    cout << dataBuffer.size() << endl;
     /*for (int i = 0; i < dataBuffer.size(); i++) {
         cout << dataBuffer[i] << endl;
     }*/
-    qDebug()<< "enter check continuous";
+   // qDebug()<< "enter check continuous";
     checkContinuousPlayability();
 }
 
@@ -204,12 +204,12 @@ void ClientNode::checkContinuousPlayability(int min_continuous_blocks ) {
         // 播放数据块
         play(PlayableSegment(start_block_id, count));
 
-        for (int i = 0; i < dataBuffer.size(); i++) {
-            qDebug() << dataBuffer[i].dataNum;
-        }
-        cout << endl;
+//        for (int i = 0; i < dataBuffer.size(); i++) {
+//            qDebug() << dataBuffer[i].dataNum;
+//        }
+//        cout << endl;
     }
-    cout << start_block_id << " " << count << endl;
+//    cout << start_block_id << " " << count << endl;
 
     return;
 }
