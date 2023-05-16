@@ -346,9 +346,9 @@ color: rgb(0, 85, 0);</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>20</x>
        <y>10</y>
-       <width>301</width>
+       <width>321</width>
        <height>41</height>
       </rect>
      </property>
@@ -360,6 +360,9 @@ border-radius:0px}</string>
      <property name="text">
       <string>Please enter the number of nodes：</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
     </widget>
     <widget class="QPushButton" name="pushButton_generate">
      <property name="geometry">
@@ -369,6 +372,9 @@ border-radius:0px}</string>
        <width>38</width>
        <height>38</height>
       </rect>
+     </property>
+     <property name="whatsThis">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;generate now&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="styleSheet">
       <string notr="true">border:none;

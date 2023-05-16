@@ -1,7 +1,7 @@
 #include "total.h"
 #include "ui_infowidget.h"
 #include "ui_total.h"
-
+#include"intro.h"
 
 
 Total::Total(QWidget *parent) :
@@ -54,6 +54,7 @@ void Total::on_pushButton_delete_clicked()
     stepTimes = 0;
     ui->pushButton_start->setEnabled(true);
     ui->pushButton_step->setEnabled(true);
+    ui->lineEdit->setText(QString::number(prew->clientSet.size()));
 }
 void Total::setidLabelText(const QString &text)
 {
@@ -83,9 +84,8 @@ void Total::setdelayLabelText(const QString &text){
 
 void Total::on_pushButton_more_clicked()
 {
-    if(prew->lastChoose != -1){
+    if(prew->lastChoose > 0){
         InfoWidget* w = new InfoWidget();
-        //iw = w;
         w->setInfo(prew->lastChoose,cur_block,cur_memory);
         w->show();
     }
@@ -94,34 +94,47 @@ void Total::on_pushButton_more_clicked()
 
 void Total::on_pushButton_start_clicked()
 {
-    if(!started){
-        prew->startEvent();
-        started = true;
+    if(prew->listSize > 0){
+        if(!started){
+            prew->startEvent();
+            started = true;
+        }
+        ui->pushButton_start->setEnabled(false);
+        ui->pushButton_step->setEnabled(false);
     }
-    ui->pushButton_start->setEnabled(false);
-    ui->pushButton_step->setEnabled(false);
 }
 
 
 void Total::on_pushButton_step_clicked()
 {
-    if(stepTimes == 0){
-        prew->stepEvent_first();
-        stepTimes++;
+    if(prew->listSize > 0){
+        if(stepTimes == 0){
+            prew->stepEvent_first();
+            stepTimes++;
+        }
+        else{
+            prew->stepEvent();
+            stepTimes++;
+        }
+        ui->pushButton_start->setEnabled(false);
     }
-    else{
-        prew->stepEvent();
-        stepTimes++;
-    }
-    ui->pushButton_start->setEnabled(false);
 }
 
 //开始生成
 void Total::on_pushButton_generate_clicked()
 {
     int k = (ui->lineEdit->text()).toInt();
-    qDebug()<<k;
     prew->generate(k);
     ui->pushButton_generate->setEnabled(false);
+    ui->lineEdit->setEnabled(false);
+    ui->lineEdit->setText(QString::number(k-1));
+    ui->label_3->setText("Number of current clients:");
+}
+
+
+void Total::on_pushButton_2_clicked()
+{
+    Intro* intro = new Intro;
+    intro->show();
 }
 

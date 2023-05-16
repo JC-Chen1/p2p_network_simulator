@@ -16,6 +16,7 @@ SOURCES += \
     datablock.cpp \
     event.cpp \
     infowidget.cpp \
+    intro.cpp \
     main.cpp \
     mainwindow.cpp \
     node.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     datablock.h \
     event.h \
     infowidget.h \
+    intro.h \
     mainwindow.h \
     node.h \
     playablesegment.h \
@@ -43,6 +45,7 @@ HEADERS += \
 
 FORMS += \
     infowidget.ui \
+    intro.ui \
     mainwindow.ui \
     presentationwidget.ui \
     total.ui
