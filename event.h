@@ -85,7 +85,7 @@ public:
             qDebug() << "数据块编号为：" << QString::number(client_.dataBuffer[i].dataNum) << ",生成时间为：" << QString::number(client_.dataBuffer[i].time);
         }
         // 添加新的RequestVideoBlockEvent事件到邻居节点的事件列表中
-        double newTime = time + 0.5; // 0.01秒后
+        double newTime = time + 0.5; // 0.5秒后
         //Node类中有定义nodeNum来记录节点的编号，并且也是节点在总节点列表中的下标
         //客户端节点在客户端节点列表的下标 = nodeNum - 1（因为nodeNum包含服务器节点的下标）
         //定时发起检查的请求
