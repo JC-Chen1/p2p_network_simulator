@@ -3,7 +3,6 @@
 #include "ui_total.h"
 #include"intro.h"
 
-
 Total::Total(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Total)
@@ -18,10 +17,14 @@ Total::Total(QWidget *parent) :
     this->setAttribute(Qt::WA_TranslucentBackground);//设置窗口背景透明
     ui->pushButton_start->setIcon(QIcon(":/start.png"));
     ui->pushButton_start->setIconSize(QSize(28,28));
+    ui->pushButton_start->setToolTip("完整模拟运行一次p2p网络");
     ui->pushButton_step->setIcon(QIcon(":/step.png"));
     ui->pushButton_step->setIconSize(QSize(28,28));
+    ui->pushButton_step->setToolTip("单步运行，处理一次服务器事件");
     ui->pushButton_delete->setIcon(QIcon(":/delete.png"));
     ui->pushButton_delete->setIconSize(QSize(28,28));
+    ui->pushButton_delete->setToolTip("指定一个节点后点击删除");
+    ui->pushButton_generate->setToolTip("点击生成节点位置");
 
 }
 
@@ -125,7 +128,7 @@ void Total::on_pushButton_generate_clicked()
 {
     int k = (ui->lineEdit->text()).toInt();
     prew->generate(k);
-    ui->pushButton_generate->setEnabled(false);
+    ui->pushButton_generate->hide();
     ui->lineEdit->setEnabled(false);
     ui->lineEdit->setText(QString::number(k-1));
     ui->label_3->setText("Number of current clients:");
@@ -138,3 +141,17 @@ void Total::on_pushButton_2_clicked()
     intro->show();
 }
 
+void Total::mousePressEvent(QMouseEvent *event){
+    if (event->button() == Qt::LeftButton) {
+        m_dragPos = event->globalPos() - frameGeometry().topLeft();
+        event->accept();
+    }
+}
+
+void Total::mouseMoveEvent(QMouseEvent *event)
+{
+    if (event->buttons() & Qt::LeftButton) {
+        move(event->globalPos() - m_dragPos);
+        event->accept();
+    }
+}

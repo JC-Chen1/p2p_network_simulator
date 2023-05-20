@@ -14,7 +14,7 @@ presentationWidget::presentationWidget(QWidget *parent) :
     Pressed = false;
     lastChoose = -1;
     //客户端节点buffer的大小
-    bufferSize = 30;
+    bufferSize = 60;
     //服务器节点buffer的大小
     server_size = 30;
 
@@ -268,7 +268,16 @@ void presentationWidget::startEvent(){
     vector<vector<int>> vertices(listSize, vector<int>(listSize, 0));
     //初始化连接图类
     connectionG = ConnectionGraph(vertices, p2p);
+    //利用维诺图生成
     connectionG.VNconnect();
+//    随机生成邻居
+//    for (int i = 0; i < 20; i++)
+//    {
+//        //设置邻居节点的个数t
+//        int t = 3;
+//        //对每个节点调用connectNodes来创建连边
+//        connectionG.connectNodes(i, t);
+//    }
     //更新邻接矩阵
     connectionG.setAdjMatrix();
     //清空事件队列
@@ -373,7 +382,7 @@ void presentationWidget::startEvent(){
         RequestVideoBlockEvent* requestEvent = new RequestVideoBlockEvent(0.1, node.nodeNum - 1, node, clientSet, connectionG.m_connectionList, server,eventList);
         eventList.push(requestEvent);
     }
-    double maxTime = 1.9;
+    double maxTime = 15.9;
     while (!eventList.empty()) {
         Event* event = eventList.top();
         eventList.pop();

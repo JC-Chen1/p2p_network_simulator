@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include<QPaintEvent>
+#include<QMouseEvent>
 #include"presentationwidget.h"
 #include"infowidget.h"
 
@@ -17,6 +18,9 @@ class Total : public QWidget
 public:
     explicit Total(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent* event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+
     presentationWidget* prew;
     vector<DataBlock> cur_block;
     vector<pair<int, double>> cur_memory;
@@ -43,6 +47,7 @@ private slots:
 
 private:
     Ui::Total *ui;
+    QPoint m_dragPos;
 };
 
 #endif // TOTAL_H

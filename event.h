@@ -48,12 +48,11 @@ public:
         // 添加新的GenerateVideoBlockEvent事件到事件列表中
         qDebug() << "服务器在" << time << "秒时加入队列，进行更新";
         double newTime = time + 1; // 1秒后
-        for (int i = 0; i < server_node.dataBuffer.size(); i++) {
-            qDebug() << "输出此时服务器的数据块编号:" << server_node.dataBuffer[i].dataNum;
-        }
+//        for (int i = 0; i < server_node.dataBuffer.size(); i++) {
+//            qDebug() << "输出此时服务器的数据块编号:" << server_node.dataBuffer[i].dataNum;
+//        }
         GenerateVideoBlockEvent* newEvent = new GenerateVideoBlockEvent(newTime, server_node,0,eventList);
         //暂时先跑20
-        if(newTime < 20)
             eventList.push(newEvent);
     }
 private:
@@ -80,18 +79,18 @@ public:
     }
     void execute() override {
         client_.updateBuffer(time, nodeList_, connections_, server_);
-        qDebug() << "在" << QString::number(time) << "秒时客户端" << QString::number(clientNum) << "号完成请求和更新";
-        for (int i = 0; i < client_.dataBuffer.size(); i++) {
-            qDebug() << "数据块编号为：" << QString::number(client_.dataBuffer[i].dataNum) << ",生成时间为：" << QString::number(client_.dataBuffer[i].time);
-        }
+        //qDebug() << "在" << QString::number(time) << "秒时客户端" << QString::number(clientNum) << "号完成请求和更新";
+//        for (int i = 0; i < client_.dataBuffer.size(); i++) {
+//            qDebug() << "数据块编号为：" << QString::number(client_.dataBuffer[i].dataNum) << ",生成时间为：" << QString::number(client_.dataBuffer[i].time);
+//        }
         // 添加新的RequestVideoBlockEvent事件到邻居节点的事件列表中
-        double newTime = time + 0.5; // 0.01秒后
+        double newTime = time + 0.5; // 0.5秒后
         //Node类中有定义nodeNum来记录节点的编号，并且也是节点在总节点列表中的下标
         //客户端节点在客户端节点列表的下标 = nodeNum - 1（因为nodeNum包含服务器节点的下标）
         //定时发起检查的请求
         //push0.01秒后的新事件
         RequestVideoBlockEvent* newEvent = new RequestVideoBlockEvent(newTime, client_.nodeNum - 1, nodeList_[client_.nodeNum - 1], nodeList_, connections_, server_,eventList);
-        if (newTime < 20) eventList.push(newEvent);
+         eventList.push(newEvent);
     }
 
 private:

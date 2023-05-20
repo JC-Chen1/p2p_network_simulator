@@ -369,21 +369,35 @@ border-radius:0px}</string>
       <rect>
        <x>490</x>
        <y>10</y>
-       <width>38</width>
-       <height>38</height>
+       <width>131</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="whatsThis">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;generate now&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="styleSheet">
-      <string notr="true">border:none;
-border-radius:0px;
-border-image: url(:/generate.png);
+      <string notr="true">QPushButton
+{
+	font: 500 15pt &quot;Century Gothic&quot;;
+	background: rgba(163, 163, 163,0.7);
+        color: rgb(65, 65, 65);  
+        border-radius: 9px;  
+        border-style: outset;
+		border: none;
+}
+
+QPushButton:hover{
+	   color: black;   
+        border-radius: 9px; 
+        border-style: outset;
+		border: none;
+		background: rgba(163, 163, 163,0.7);
+}
 </string>
      </property>
      <property name="text">
-      <string/>
+      <string>generate</string>
      </property>
     </widget>
    </widget>

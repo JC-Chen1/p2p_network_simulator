@@ -68,7 +68,7 @@ bool ConnectionGraph::VNconnect() {
     // build connection
     for(int i=0;i<m_p2p.size();i++){
         vector<int> nei=neighbors[i];
-        cout << "nei.size:" << nei.size() << endl;
+       // cout << "nei.size:" << nei.size() << endl;
         for(int j=0;j<nei.size();j++){
             Node node1=m_p2p[i];
             Node node2=m_p2p[nei[j]];
